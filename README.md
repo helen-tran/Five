@@ -6,6 +6,8 @@ Five is an ecommerce group project. The store Five displays a variety of product
 
 The website was designed by me and you can view the figma link [here](https://www.figma.com/file/HmPOblpCFOkRp7FYhJLSUF/Five?node-id=36%3A115)
 
+To get started, in the terminal. Enter cd server, and then hit yarn start. Then cd client, and hit yarn start as well.
+
 # Project
 
 ## Coding Languxages
