@@ -286,6 +286,41 @@ const getAllItemBodyLocations = (req, res) => {
   }
 };
 
+// get all products and company info
+const getAllInfo = (req, res) => {
+  let productsArray = [];
+  // changing key name ("name") inside items to "productName" so it won't override with the companies "name" data. Since the keys are the same
+  const itemsNameChange = items.map(({ name: productName, ...rest }) => ({
+    productName,
+    ...rest,
+  }));
+  // changing key name (_id) inside items to "productId" so it won't override with companies "_id" data.
+  const itemsProducts = itemsNameChange.map(({ _id: productId, ...rest }) => ({
+    productId,
+    ...rest,
+  }));
+  // changing key name (_id) inside items to "companyId" so the data can cross reference with the data in itemsProducts
+  const companyArray = companies.map(({ _id: companyId, ...rest }) => ({
+    companyId,
+    ...rest,
+  }));
+
+  // merging items to the corresponding companies data set
+  const newArray = itemsProducts.map((item) => ({
+    ...item,
+    ...companyArray.find((company) => company.companyId === item.companyId),
+  }));
+  productsArray.push(newArray);
+  try {
+    if (productsArray) {
+      const successMsg = `Displaying all items`;
+      sendResponse(res, 200, productsArray, successMsg);
+    }
+  } catch (err) {
+    sendResponse(res, 500, req.body, err.message);
+  }
+};
+
 // export the handlers
 module.exports = {
   getAllItems,
@@ -296,4 +331,5 @@ module.exports = {
   getOneCompany,
   getAllItemCategories,
   getAllItemBodyLocations,
+  getAllInfo,
 };

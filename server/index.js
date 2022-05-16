@@ -14,6 +14,7 @@ const {
   getOneCompany,
   getAllItemCategories,
   getAllItemBodyLocations,
+  getAllInfo,
 } = require("./handlers");
 
 express()
@@ -43,5 +44,6 @@ express()
   .get("/companies/:id", getOneCompany)
   .get("/categories", getAllItemCategories) // unused
   .get("/body-locations", getAllItemBodyLocations) // unused
+  .get("/allInfo", getAllInfo)
 
   .listen(PORT, () => console.info(`Listening on port ${PORT}`));

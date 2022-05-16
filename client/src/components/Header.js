@@ -39,6 +39,7 @@ const HeaderElement = styled.header`
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
+  border-bottom: 1px solid #6f6f6f;
   h1 {
     text-transform: uppercase;
     font-size: 50px;
