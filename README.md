@@ -4,6 +4,8 @@
 
 Five is an ecommerce group project. The store Five displays a variety of products that can be added to the cart and purchased. This project was in collaboration with Flyod Cheng, Oliver, and Eugene.
 
+The website was designed by me and you can view the figma link [here](https://www.figma.com/file/HmPOblpCFOkRp7FYhJLSUF/Five?node-id=36%3A115)
+
 # Project
 
 ## Coding Languxages
